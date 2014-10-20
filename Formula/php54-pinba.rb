@@ -3,8 +3,8 @@ require File.expand_path("../../../../../Taps/homebrew/homebrew-php/Abstract/abs
 class Php54Pinba < AbstractPhp54Extension
   init
   homepage 'https://github.com/tony2001/pinba_extension'
-  url 'https://github.com/tony2001/pinba_extension/archive/master.tar.gz'
-  sha1 '063f1005f4d49a99d40c210476978acfa6d21b74'
+  url 'https://github.com/tony2001/pinba_extension/archive/4f20a81a0c1d1e57f0f361d403e6610099df1ba0.tar.gz'
+  sha1 '918edb29a7072cbd0a1feba7f86228be092d0dcb'
   version 'rev-4f20a81a0c'
   head 'https://github.com/tony2001/pinba_extension.git'
 
