@@ -8,8 +8,6 @@ class Php53Pinba < AbstractPhp53Extension
   version 'rev-4f20a81a0c'
   head 'https://github.com/tony2001/pinba_extension.git'
 
-  depends_on 'pinba'
-
   def install
     ENV.universal_binary if build.universal?
 
