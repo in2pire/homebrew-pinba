@@ -49,7 +49,7 @@ with XY is your PHP version (see homebrew/php), don't forget to edit ext-pinba.i
 
 ## Todo
 
-- [] Create mariadb-engine-pinba for mariadb
+- [ ] Create mariadb-engine-pinba for mariadb
 
 ## License
 
