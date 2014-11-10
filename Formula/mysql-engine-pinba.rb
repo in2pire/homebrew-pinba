@@ -23,13 +23,21 @@ class MysqlEnginePinba < AbstractEnginePinba
       cp_r "scripts", buildpath/"scripts"
     end
 
-    system "./configure", "--prefix=#{prefix}",
-                          "--libdir=#{prefix}/plugin",
-                          "--with-mysql=#{buildpath}/mysql",
-                          "--with-protobuf=#{Formula['protobuf'].opt_prefix}",
-                          "--with-judy=#{Formula['judy'].opt_prefix}",
-                          "--with-event=#{Formula['libevent'].opt_prefix}"
+    args = ["--prefix=#{prefix}",
+            "--libdir=#{prefix}/plugin",
+            "--with-mysql=#{buildpath}/mysql",
+            "--with-judy=#{Formula['judy'].opt_prefix}",
+            "--with-event=#{Formula['libevent'].opt_prefix}"]
 
+    if build.head?
+      # Run buildconfig
+      system "./buildconf.sh"
+    else
+      # Configure with protobuf
+      args << "--with-protobuf=#{Formula['protobuf'].opt_prefix}"
+    end
+
+    system "./configure", *args
     system "make"
     system "make install"
 
