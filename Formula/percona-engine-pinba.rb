@@ -4,8 +4,8 @@ class PerconaEnginePinba < AbstractEnginePinba
   init
 
   resource "percona" do
-    url 'http://www.percona.com/downloads/Percona-Server-5.6/LATEST/source/tarball/percona-server-5.6.21-70.0.tar.gz'
-    sha1 '15abf4e614848f594b51bb364b8d087003964e72'
+    url 'http://www.percona.com/downloads/Percona-Server-5.6/LATEST/source/tarball/percona-server-5.6.21-70.1.tar.gz'
+    sha1 '5c4d2b1ebff5b4849dd2c409dc8f81129961a675'
   end
 
   resource "master" do
