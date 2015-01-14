@@ -1,16 +1,16 @@
 require File.expand_path("../../Abstract/abstract-engine-pinba", __FILE__)
 
-class PerconaEnginePinba < AbstractEnginePinba
+class MysqlEnginePinba255 < AbstractEnginePinba255
   init
 
-  depends_on 'percona-server'
+  depends_on 'mysql'
 
-  conflicts_with 'mysql-engine-pinba', 'mysql-engine-pinba255', 'percona-engine-pinba255',
+  conflicts_with 'percona-engine-pinba', 'percona-engine-pinba255', 'mysql-engine-pinba',
     :because => "It installs the same binaries."
 
-  resource "percona" do
-    url 'http://www.percona.com/downloads/Percona-Server-5.6/LATEST/source/tarball/percona-server-5.6.21-70.1.tar.gz'
-    sha1 '5c4d2b1ebff5b4849dd2c409dc8f81129961a675'
+  resource "mysql" do
+    url "http://cdn.mysql.com/Downloads/MySQL-5.6/mysql-5.6.21.tar.gz"
+    sha1 "be068ba90953aecdb3f448b4ba1d35796eb799eb"
   end
 
   resource "master" do
@@ -19,7 +19,7 @@ class PerconaEnginePinba < AbstractEnginePinba
   end
 
   def install
-    resource("percona").stage do
+    resource("mysql").stage do
       system "/usr/local/bin/cmake -DBUILD_CONFIG=mysql_release -Wno-dev && cd include && make"
       cp_r pwd, buildpath/"mysql"
     end
@@ -47,7 +47,7 @@ class PerconaEnginePinba < AbstractEnginePinba
     system "make install"
 
     # Install plugin
-    plugin_dir = Formula['percona-server'].lib/"mysql/plugin";
+    plugin_dir = Formula['mysql'].lib/"plugin";
     plugin_file = "#{plugin_dir}/libpinba_engine.so"
     system "if [ -L \"#{plugin_file}\" ]; then rm -f \"#{plugin_file}\"; fi"
 

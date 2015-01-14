@@ -1,11 +1,11 @@
 require File.expand_path("../../Abstract/abstract-engine-pinba", __FILE__)
 
-class PerconaEnginePinba < AbstractEnginePinba
+class PerconaEnginePinba255 < AbstractEnginePinba255
   init
 
   depends_on 'percona-server'
 
-  conflicts_with 'mysql-engine-pinba', 'mysql-engine-pinba255', 'percona-engine-pinba255',
+  conflicts_with 'mysql-engine-pinba', 'mysql-engine-pinba255', 'percona-engine-pinba',
     :because => "It installs the same binaries."
 
   resource "percona" do

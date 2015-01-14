@@ -3,6 +3,11 @@ require File.expand_path("../../Abstract/abstract-engine-pinba", __FILE__)
 class MysqlEnginePinba < AbstractEnginePinba
   init
 
+  depends_on 'mysql'
+
+  conflicts_with 'percona-engine-pinba', 'percona-engine-pinba255', 'mysql-engine-pinba255',
+    :because => "It installs the same binaries."
+
   resource "mysql" do
     url "http://cdn.mysql.com/Downloads/MySQL-5.6/mysql-5.6.21.tar.gz"
     sha1 "be068ba90953aecdb3f448b4ba1d35796eb799eb"
