@@ -1,4 +1,4 @@
-require File.expand_path("../../Abstract/abstract-engine-pinba", __FILE__)
+require File.expand_path("../../Abstract/abstract-engine-pinba255", __FILE__)
 
 class PerconaEnginePinba255 < AbstractEnginePinba255
   init
