@@ -4,7 +4,7 @@ class AbstractEnginePinba255 < Formula
   def self.init
     homepage 'http://pinba.org'
     url 'http://pinba.org/files/pinba_engine-1.0.0.tar.gz'
-    head 'https://github.com/in2pire/homebrew-pinba.git'
+    head 'https://github.com/in2pire/pinba_engine.git'
     sha1 '8c456b20b4723bb403a585512c969d2053f45ba9'
 
     depends_on 'pkg-config' => :build
