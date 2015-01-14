@@ -10,7 +10,7 @@ class PerconaEnginePinba255 < AbstractEnginePinba255
 
   resource "percona" do
     url 'http://www.percona.com/downloads/Percona-Server-5.6/LATEST/source/tarball/percona-server-5.6.22-71.0.tar.gz'
-    sha1 'a1f7631c1e9ec7a9526e25831f319264'
+    sha1 '346c96c951a566bdc52aef3c1f9dcd124d08b705'
   end
 
   resource "master" do
