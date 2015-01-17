@@ -9,8 +9,8 @@ class MysqlEnginePinba < AbstractEnginePinba
     :because => "It installs the same binaries."
 
   resource "mysql" do
-    url "http://cdn.mysql.com/Downloads/MySQL-5.6/mysql-5.6.21.tar.gz"
-    sha1 "be068ba90953aecdb3f448b4ba1d35796eb799eb"
+    url "http://cdn.mysql.com/Downloads/MySQL-5.6/mysql-5.6.22.tar.gz"
+    sha1 "31ac6f799dd76950b4de9979320129ac04fb38e1"
   end
 
   resource "master" do
