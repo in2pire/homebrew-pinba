@@ -15,7 +15,7 @@ class MysqlEnginePinba255 < AbstractEnginePinba255
 
   resource "master" do
     url 'https://github.com/in2pire/pinba_engine/archive/master.tar.gz'
-    sha1 '07f5640339e96487630b0617a7283b6f28c7697c'
+    sha1 '4af8370aaf2d9f43f8ff9252a6a712490a2113db'
   end
 
   def install
