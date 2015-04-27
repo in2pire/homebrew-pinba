@@ -3,9 +3,9 @@ require 'formula'
 class AbstractEnginePinba255 < Formula
   def self.init
     homepage 'http://pinba.org'
-    url 'http://pinba.org/files/pinba_engine-1.0.0.tar.gz'
+    url 'http://pinba.org/files/pinba_engine-1.1.0.tar.gz'
+    sha1 'd0e20e6b1e15c5cbe90a84116c0bd7929c62a5e9'
     head 'https://github.com/in2pire/pinba_engine.git'
-    sha1 '8c456b20b4723bb403a585512c969d2053f45ba9'
 
     depends_on 'pkg-config' => :build
     depends_on 'autoconf' => :build
