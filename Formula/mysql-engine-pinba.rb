@@ -15,7 +15,7 @@ class MysqlEnginePinba < AbstractEnginePinba
 
   resource "master" do
     url 'https://github.com/tony2001/pinba_engine/archive/master.tar.gz'
-    sha1 '07f5640339e96487630b0617a7283b6f28c7697c'
+    sha1 '7d1dcf32906a0e5d735278715dc25fdff560e3de'
   end
 
   def install
