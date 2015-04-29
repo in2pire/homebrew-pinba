@@ -15,7 +15,7 @@ class PerconaEnginePinba255 < AbstractEnginePinba255
 
   resource "master" do
     url 'https://github.com/in2pire/pinba_engine/archive/master.tar.gz'
-    sha1 '4af8370aaf2d9f43f8ff9252a6a712490a2113db'
+    sha1 '07f5640339e96487630b0617a7283b6f28c7697c'
   end
 
   # Fix https://github.com/tony2001/pinba_engine/issues/40
@@ -63,9 +63,9 @@ index 8c71010..85193bb 100644
 --- a/src/ha_pinba.cc
 +++ b/src/ha_pinba.cc
 @@ -2684,7 +2684,7 @@ int ha_pinba::read_next_row(unsigned char *buf, uint active_index, bool by_key)
- 
+
  				str_hash = this_index[active_index].ival;
- 
+
 -				ppvalue = JudyLNext(D->tag.name_index, &str_hash, NULL);
 +				ppvalue = JudyLNext(D->tag.name_index, (Word_t *)&str_hash, NULL);
  				if (!ppvalue) {
