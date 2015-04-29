@@ -28,6 +28,9 @@ class PerconaEnginePinba < AbstractEnginePinba
       cp_r "scripts", buildpath/"scripts"
     end
 
+    # Fix https://github.com/tony2001/pinba_engine/issues/40
+    patch :DATA
+
     args = ["--prefix=#{prefix}",
             "--libdir=#{prefix}/plugin",
             "--with-mysql=#{buildpath}/mysql",
@@ -56,3 +59,18 @@ class PerconaEnginePinba < AbstractEnginePinba
     system "cp -R \"#{buildpath}/scripts\" #{prefix}/"
   end
 end
+
+__END__
+diff --git a/src/ha_pinba.cc b/src/ha_pinba.cc
+index 8c71010..85193bb 100644
+--- a/src/ha_pinba.cc
++++ b/src/ha_pinba.cc
+@@ -2684,7 +2684,7 @@ int ha_pinba::read_next_row(unsigned char *buf, uint active_index, bool by_key)
+
+         str_hash = this_index[active_index].ival;
+
+-        ppvalue = JudyLNext(D->tag.name_index, &str_hash, NULL);
++        ppvalue = JudyLNext(D->tag.name_index, (Word_t *)&str_hash, NULL);
+         if (!ppvalue) {
+           ret = HA_ERR_END_OF_FILE;
+           goto failure;
