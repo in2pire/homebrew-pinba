@@ -18,6 +18,9 @@ class PerconaEnginePinba255 < AbstractEnginePinba255
     sha1 '4af8370aaf2d9f43f8ff9252a6a712490a2113db'
   end
 
+  # Fix https://github.com/tony2001/pinba_engine/issues/40
+  patch :DATA
+
   def install
     resource("percona").stage do
       system "/usr/local/bin/cmake -DBUILD_CONFIG=mysql_release -Wno-dev && cd include && make"
@@ -37,9 +40,6 @@ class PerconaEnginePinba255 < AbstractEnginePinba255
     if build.head?
       # Run buildconfig
       system "./buildconf.sh"
-    else
-      # Configure with protobuf
-      args << "--with-protobuf=#{Formula['protobuf'].opt_prefix}"
     end
 
     system "./configure", *args
@@ -56,3 +56,18 @@ class PerconaEnginePinba255 < AbstractEnginePinba255
     system "cp -R \"#{buildpath}/scripts\" #{prefix}/"
   end
 end
+
+__END__
+diff --git a/src/ha_pinba.cc b/src/ha_pinba.cc
+index 8c71010..85193bb 100644
+--- a/src/ha_pinba.cc
++++ b/src/ha_pinba.cc
+@@ -2684,7 +2684,7 @@ int ha_pinba::read_next_row(unsigned char *buf, uint active_index, bool by_key)
+ 
+ 				str_hash = this_index[active_index].ival;
+ 
+-				ppvalue = JudyLNext(D->tag.name_index, &str_hash, NULL);
++				ppvalue = JudyLNext(D->tag.name_index, (Word_t *)&str_hash, NULL);
+ 				if (!ppvalue) {
+ 					ret = HA_ERR_END_OF_FILE;
+ 					goto failure;
