@@ -16,6 +16,9 @@ class AbstractEnginePinba < Formula
     depends_on 'protobuf'
     depends_on 'judy'
     depends_on 'libevent'
+
+    # Fix https://github.com/tony2001/pinba_engine/issues/40
+    patch :DATA
   end
 
   def caveats
@@ -44,3 +47,18 @@ EOS
     caveats.join("\n")
   end
 end
+
+__END__
+diff --git a/src/ha_pinba.cc b/src/ha_pinba.cc
+index 8c71010..85193bb 100644
+--- a/src/ha_pinba.cc
++++ b/src/ha_pinba.cc
+@@ -2684,7 +2684,7 @@ int ha_pinba::read_next_row(unsigned char *buf, uint active_index, bool by_key)
+
+         str_hash = this_index[active_index].ival;
+
+-        ppvalue = JudyLNext(D->tag.name_index, &str_hash, NULL);
++        ppvalue = JudyLNext(D->tag.name_index, (Word_t *)&str_hash, NULL);
+         if (!ppvalue) {
+           ret = HA_ERR_END_OF_FILE;
+           goto failure;
