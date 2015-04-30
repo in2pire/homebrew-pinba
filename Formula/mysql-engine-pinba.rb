@@ -5,7 +5,7 @@ class MysqlEnginePinba < AbstractEnginePinba
 
   depends_on 'mysql'
 
-  conflicts_with 'percona-engine-pinba', 'percona-engine-pinba255', 'mysql-engine-pinba255',
+  conflicts_with 'percona-engine-pinba', 'percona-engine-pinba-tagsize255', 'mysql-engine-pinba-tagsize255',
     :because => "It installs the same binaries."
 
   resource "mysql" do

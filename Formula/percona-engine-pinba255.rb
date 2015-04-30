@@ -1,11 +1,11 @@
-require File.expand_path("../../Abstract/abstract-engine-pinba255", __FILE__)
+require File.expand_path("../../Abstract/abstract-engine-pinba-tagsize255", __FILE__)
 
-class PerconaEnginePinba255 < AbstractEnginePinba255
+class PerconaEnginePinbaTagSize255 < AbstractEnginePinbaTagSize255
   init
 
   depends_on 'percona-server'
 
-  conflicts_with 'mysql-engine-pinba', 'mysql-engine-pinba255', 'percona-engine-pinba',
+  conflicts_with 'mysql-engine-pinba', 'mysql-engine-pinba-tagsize255', 'percona-engine-pinba',
     :because => "It installs the same binaries."
 
   resource "percona" do

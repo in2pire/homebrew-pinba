@@ -1,11 +1,11 @@
-require File.expand_path("../../Abstract/abstract-engine-pinba255", __FILE__)
+require File.expand_path("../../Abstract/abstract-engine-pinba-tagsize255", __FILE__)
 
-class MysqlEnginePinba255 < AbstractEnginePinba255
+class MysqlEnginePinbaTagSize255 < AbstractEnginePinbaTagSize255
   init
 
   depends_on 'mysql'
 
-  conflicts_with 'percona-engine-pinba', 'percona-engine-pinba255', 'mysql-engine-pinba',
+  conflicts_with 'percona-engine-pinba', 'percona-engine-pinba-tagsize255', 'mysql-engine-pinba',
     :because => "It installs the same binaries."
 
   resource "mysql" do
@@ -63,9 +63,9 @@ index 8c71010..85193bb 100644
 --- a/src/ha_pinba.cc
 +++ b/src/ha_pinba.cc
 @@ -2684,7 +2684,7 @@ int ha_pinba::read_next_row(unsigned char *buf, uint active_index, bool by_key)
- 
+
  				str_hash = this_index[active_index].ival;
- 
+
 -				ppvalue = JudyLNext(D->tag.name_index, &str_hash, NULL);
 +				ppvalue = JudyLNext(D->tag.name_index, (Word_t *)&str_hash, NULL);
  				if (!ppvalue) {

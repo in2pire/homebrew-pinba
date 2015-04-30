@@ -1,6 +1,6 @@
 require 'formula'
 
-class AbstractEnginePinba255 < Formula
+class AbstractEnginePinbaTagSize255 < Formula
   def self.init
     homepage 'http://pinba.org'
     url 'https://github.com/in2pire/pinba_engine/releases/download/v1.1.0/pinba_engine-1.1.0.tar.gz'
