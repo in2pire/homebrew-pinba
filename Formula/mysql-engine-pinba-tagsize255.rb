@@ -1,6 +1,6 @@
 require File.expand_path("../../Abstract/abstract-engine-pinba-tagsize255", __FILE__)
 
-class MysqlEnginePinbaTagSize255 < AbstractEnginePinbaTagSize255
+class MysqlEnginePinbaTagsize255 < AbstractEnginePinbaTagsize255
   init
 
   depends_on 'mysql'

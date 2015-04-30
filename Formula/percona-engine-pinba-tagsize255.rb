@@ -1,6 +1,6 @@
 require File.expand_path("../../Abstract/abstract-engine-pinba-tagsize255", __FILE__)
 
-class PerconaEnginePinbaTagSize255 < AbstractEnginePinbaTagSize255
+class PerconaEnginePinbaTagsize255 < AbstractEnginePinbaTagsize255
   init
 
   depends_on 'percona-server'
