@@ -15,7 +15,7 @@ class PerconaEnginePinba < AbstractEnginePinba
 
   resource "master" do
     url 'https://github.com/tony2001/pinba_engine/archive/master.tar.gz'
-    sha1 '7d1dcf32906a0e5d735278715dc25fdff560e3de'
+    sha1 '592eb7cc76044df448ad8cc5fbe3022ef908a75b'
   end
 
   # Fix https://github.com/tony2001/pinba_engine/issues/40
