@@ -14,8 +14,8 @@ class MysqlEnginePinba < AbstractEnginePinba
   end
 
   resource "master" do
-    url 'https://github.com/tony2001/pinba_engine/archive/master.tar.gz'
-    sha1 '592eb7cc76044df448ad8cc5fbe3022ef908a75b'
+    url 'https://github.com/tony2001/pinba_engine/archive/5c72ed9956ba3a2f831ba19db2da26ee60fb246a.tar.gz'
+    sha1 '9c8b2672e2db6871b7ee4513e5e0b2cbba619494'
   end
 
   # Fix https://github.com/tony2001/pinba_engine/issues/40
