@@ -13,7 +13,7 @@ class MysqlEnginePinba < AbstractEnginePinba
     sha1 "107333582f65ccfbeabef1e602d76a824ac1f6ce"
   end
 
-  resource "master" do
+  resource "pinba-engine-5c72ed99" do
     url 'https://github.com/tony2001/pinba_engine/archive/5c72ed9956ba3a2f831ba19db2da26ee60fb246a.tar.gz'
     sha1 '9c8b2672e2db6871b7ee4513e5e0b2cbba619494'
   end
@@ -27,7 +27,7 @@ class MysqlEnginePinba < AbstractEnginePinba
       cp_r pwd, buildpath/"mysql"
     end
 
-    resource("master").stage do
+    resource("pinba-engine-5c72ed99").stage do
       cp_r "scripts", buildpath/"scripts"
     end
 

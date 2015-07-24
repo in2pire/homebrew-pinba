@@ -13,7 +13,7 @@ class PerconaEnginePinbaTagsize255 < AbstractEnginePinbaTagsize255
     sha1 'fa2ba391a1c571b9b752970749ad48a4d4df4956'
   end
 
-  resource "master" do
+  resource "pinba-engine-5875bc99" do
     url 'https://github.com/in2pire/pinba_engine/archive/5875bc990fb2287c30aa13bb08ffcf17ef0efcec.tar.gz'
     sha1 '08d76fad696fbb41d045fe7b47342e36d9e10f0b'
   end
@@ -27,7 +27,7 @@ class PerconaEnginePinbaTagsize255 < AbstractEnginePinbaTagsize255
       cp_r pwd, buildpath/"mysql"
     end
 
-    resource("master").stage do
+    resource("pinba-engine-5875bc99").stage do
       cp_r "scripts", buildpath/"scripts"
     end
 
