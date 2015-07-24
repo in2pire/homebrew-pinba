@@ -14,8 +14,8 @@ class MysqlEnginePinbaTagsize255 < AbstractEnginePinbaTagsize255
   end
 
   resource "master" do
-    url 'https://github.com/in2pire/pinba_engine/archive/master.tar.gz'
-    sha1 '4af8370aaf2d9f43f8ff9252a6a712490a2113db'
+    url 'https://github.com/in2pire/pinba_engine/archive/5875bc990fb2287c30aa13bb08ffcf17ef0efcec.tar.gz'
+    sha1 '08d76fad696fbb41d045fe7b47342e36d9e10f0b'
   end
 
   # Fix https://github.com/tony2001/pinba_engine/issues/40
