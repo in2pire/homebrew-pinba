@@ -9,8 +9,8 @@ class MysqlEnginePinbaTagsize255 < AbstractEnginePinbaTagsize255
     :because => "It installs the same binaries."
 
   resource "mysql" do
-    url "https://cdn.mysql.com/Downloads/MySQL-5.6/mysql-5.6.24.tar.gz"
-    sha1 "107333582f65ccfbeabef1e602d76a824ac1f6ce"
+    url "https://cdn.mysql.com/Downloads/MySQL-5.6/mysql-5.6.26.tar.gz"
+    sha256 "b44c6ce5f95172c56c73edfa8b710b39242ec7af0ab182c040208c41866e5070"
   end
 
   resource "pinba-engine-5875bc99" do
