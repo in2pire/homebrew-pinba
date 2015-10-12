@@ -3,8 +3,8 @@ require 'formula'
 class AbstractEngineEnhancedPinba < Formula
   def self.init
     homepage 'http://pinba.org'
-    url 'https://github.com/in2pire/pinba_engine/archive/v1.1.0-p1.tar.gz'
-    sha1 '6ca9b81e38a945f3b4dfdd138096fe0c24fbf99b'
+    url 'https://github.com/in2pire/pinba_engine/releases/download/v1.1.0-p1/pinba_engine-1.1.0-p1.tar.gz'
+    sha1 '617365092c15f6f040dcc07a901a6e35551e0f91'
     head 'https://github.com/in2pire/pinba_engine.git'
 
     depends_on 'pkg-config' => :build
