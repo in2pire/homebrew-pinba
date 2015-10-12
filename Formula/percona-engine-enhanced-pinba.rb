@@ -13,9 +13,9 @@ class PerconaEngineEnhancedPinba < AbstractEngineEnhancedPinba
     sha256 '5a0d88465e4bb081e621b06bc943fafadb4c67a2cca50839b44fcd94ae793b50'
   end
 
-  resource "pinba-engine-28f7277aae" do
-    url 'https://github.com/in2pire/pinba_engine/archive/28f7277aae0eb690b2bb8441c98ff8a7a044e693.tar.gz'
-    sha1 'd1d4a10dcc08b109fa7a7aed64764430c50668c3'
+  resource "pinba-engine-6407919" do
+    url 'https://github.com/in2pire/pinba_engine/archive/640791962dbc398e0bc00708bced1fd58c58b796.tar.gz'
+    sha1 '733ad8e857531204ac2cc57aed3fb6ec0764e2c0'
   end
 
   # Fix https://github.com/tony2001/pinba_engine/issues/40
@@ -27,7 +27,7 @@ class PerconaEngineEnhancedPinba < AbstractEngineEnhancedPinba
       cp_r pwd, buildpath/"mysql"
     end
 
-    resource("pinba-engine-28f7277aae").stage do
+    resource("pinba-engine-6407919").stage do
       cp_r "scripts", buildpath/"scripts"
     end
 
