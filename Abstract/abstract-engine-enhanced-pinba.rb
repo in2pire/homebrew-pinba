@@ -1,10 +1,10 @@
 require 'formula'
 
-class AbstractEnginePinbaTagsize255 < Formula
+class AbstractEngineEnhancedPinba < Formula
   def self.init
     homepage 'http://pinba.org'
-    url 'https://github.com/in2pire/pinba_engine/releases/download/v1.1.0/pinba_engine-1.1.0.tar.gz'
-    sha1 'e916ee961801f3755d663f0db13f144fc0c6fc63'
+    url 'https://github.com/in2pire/pinba_engine/archive/v1.1.0-p1.tar.gz'
+    sha1 '6ca9b81e38a945f3b4dfdd138096fe0c24fbf99b'
     head 'https://github.com/in2pire/pinba_engine.git'
 
     depends_on 'pkg-config' => :build

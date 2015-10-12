@@ -5,17 +5,17 @@ class PerconaEnginePinba < AbstractEnginePinba
 
   depends_on 'percona-server'
 
-  conflicts_with 'mysql-engine-pinba', 'mysql-engine-pinba-tagsize255', 'percona-engine-pinba-tagsize255',
+  conflicts_with 'mysql-engine-pinba', 'mysql-engine-enhanced-pinba', 'percona-engine-enhanced-pinba',
     :because => "It installs the same binaries."
 
   resource "percona" do
-    url 'https://www.percona.com/downloads/Percona-Server-5.6/Percona-Server-5.6.25-73.0/source/tarball/percona-server-5.6.25-73.0.tar.gz'
-    sha1 'fa2ba391a1c571b9b752970749ad48a4d4df4956'
+    url 'https://www.percona.com/downloads/Percona-Server-5.6/Percona-Server-5.6.25-73.1/source/tarball/percona-server-5.6.25-73.1.tar.gz'
+    sha256 '5a0d88465e4bb081e621b06bc943fafadb4c67a2cca50839b44fcd94ae793b50'
   end
 
   resource "pinba-engine-5c72ed99" do
     url 'https://github.com/tony2001/pinba_engine/archive/5c72ed9956ba3a2f831ba19db2da26ee60fb246a.tar.gz'
-    sha1 '9c8b2672e2db6871b7ee4513e5e0b2cbba619494'
+    sha1 'd1d4a10dcc08b109fa7a7aed64764430c50668c3'
   end
 
   # Fix https://github.com/tony2001/pinba_engine/issues/40

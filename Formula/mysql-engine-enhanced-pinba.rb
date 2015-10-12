@@ -1,20 +1,20 @@
-require File.expand_path("../../Abstract/abstract-engine-pinba-tagsize255", __FILE__)
+require File.expand_path("../../Abstract/abstract-engine-enhanced-pinba", __FILE__)
 
-class PerconaEnginePinbaTagsize255 < AbstractEnginePinbaTagsize255
+class MysqlEngineEnhancedPinba < AbstractEngineEnhancedPinba
   init
 
-  depends_on 'percona-server'
+  depends_on 'mysql'
 
-  conflicts_with 'mysql-engine-pinba', 'mysql-engine-pinba-tagsize255', 'percona-engine-pinba',
+  conflicts_with 'percona-engine-pinba', 'percona-engine-enhanced-pinba', 'mysql-engine-pinba',
     :because => "It installs the same binaries."
 
-  resource "percona" do
-    url 'https://www.percona.com/downloads/Percona-Server-5.6/Percona-Server-5.6.25-73.0/source/tarball/percona-server-5.6.25-73.0.tar.gz'
-    sha1 'fa2ba391a1c571b9b752970749ad48a4d4df4956'
+  resource "mysql" do
+    url "https://cdn.mysql.com/Downloads/MySQL-5.6/mysql-5.6.27.tar.gz"
+    sha256 "8356bba23f3f6c0c2d4806110c41d1c4d6a4b9c50825e11c5be4bbee2b20b71d"
   end
 
-  resource "pinba-engine-5875bc99" do
-    url 'https://github.com/in2pire/pinba_engine/archive/5875bc990fb2287c30aa13bb08ffcf17ef0efcec.tar.gz'
+  resource "pinba-engine-28f7277aae" do
+    url 'https://github.com/in2pire/pinba_engine/archive/28f7277aae0eb690b2bb8441c98ff8a7a044e693.tar.gz'
     sha1 '08d76fad696fbb41d045fe7b47342e36d9e10f0b'
   end
 
@@ -22,12 +22,12 @@ class PerconaEnginePinbaTagsize255 < AbstractEnginePinbaTagsize255
   patch :DATA
 
   def install
-    resource("percona").stage do
+    resource("mysql").stage do
       system "/usr/local/bin/cmake -DBUILD_CONFIG=mysql_release -Wno-dev && cd include && make"
       cp_r pwd, buildpath/"mysql"
     end
 
-    resource("pinba-engine-5875bc99").stage do
+    resource("pinba-engine-28f7277aae").stage do
       cp_r "scripts", buildpath/"scripts"
     end
 
@@ -47,7 +47,7 @@ class PerconaEnginePinbaTagsize255 < AbstractEnginePinbaTagsize255
     system "make install"
 
     # Install plugin
-    plugin_dir = Formula['percona-server'].lib/"mysql/plugin";
+    plugin_dir = Formula['mysql'].lib/"plugin";
     plugin_file = "#{plugin_dir}/libpinba_engine.so"
     system "if [ -L \"#{plugin_file}\" ]; then rm -f \"#{plugin_file}\"; fi"
 

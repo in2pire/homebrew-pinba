@@ -5,12 +5,12 @@ class MysqlEnginePinba < AbstractEnginePinba
 
   depends_on 'mysql'
 
-  conflicts_with 'percona-engine-pinba', 'percona-engine-pinba-tagsize255', 'mysql-engine-pinba-tagsize255',
+  conflicts_with 'percona-engine-pinba', 'percona-engine-enhanced-pinba', 'mysql-engine-enhanced-pinba',
     :because => "It installs the same binaries."
 
   resource "mysql" do
-    url "https://cdn.mysql.com/Downloads/MySQL-5.6/mysql-5.6.26.tar.gz"
-    sha256 "b44c6ce5f95172c56c73edfa8b710b39242ec7af0ab182c040208c41866e5070"
+    url "https://cdn.mysql.com/Downloads/MySQL-5.6/mysql-5.6.27.tar.gz"
+    sha256 "8356bba23f3f6c0c2d4806110c41d1c4d6a4b9c50825e11c5be4bbee2b20b71d"
   end
 
   resource "pinba-engine-5c72ed99" do
