@@ -3,9 +3,9 @@ require File.expand_path("../../../../../Taps/homebrew/homebrew-php/Abstract/abs
 class Php53Pinba < AbstractPhp53Extension
   init
   homepage 'https://github.com/tony2001/pinba_extension'
-  url 'https://github.com/tony2001/pinba_extension/archive/4f20a81a0c1d1e57f0f361d403e6610099df1ba0.tar.gz'
-  sha1 '918edb29a7072cbd0a1feba7f86228be092d0dcb'
-  version 'rev-4f20a81a0c'
+  url 'https://github.com/tony2001/pinba_extension/archive/6869f30e8c264e7a5742ab55f4f6bd5ee29e6080.tar.gz'
+  sha1 '15d1fb5e339d1dec6bfe80e94414de6299d4df86'
+  version 'rev-6869f3'
   head 'https://github.com/tony2001/pinba_extension.git'
 
   def install
