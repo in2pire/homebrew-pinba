@@ -9,8 +9,8 @@ class PerconaEnginePinba < AbstractEnginePinba
     :because => "It installs the same binaries."
 
   resource "percona" do
-    url 'https://www.percona.com/downloads/Percona-Server-5.6/Percona-Server-5.6.25-73.1/source/tarball/percona-server-5.6.25-73.1.tar.gz'
-    sha256 '5a0d88465e4bb081e621b06bc943fafadb4c67a2cca50839b44fcd94ae793b50'
+    url "https://www.percona.com/downloads/Percona-Server-5.7/Percona-Server-5.7.11-4/source/tarball/percona-server-5.7.11-4.tar.gz"
+    sha256 "3634d2262e646db11b03837561acb0e084f33e5a597957506cf4c333ea811921"
   end
 
   resource "pinba-engine-5c72ed99" do
