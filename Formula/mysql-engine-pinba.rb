@@ -15,7 +15,7 @@ class MysqlEnginePinba < AbstractEnginePinba
 
   resource "pinba-engine-5c72ed99" do
     url 'https://github.com/tony2001/pinba_engine/archive/5c72ed9956ba3a2f831ba19db2da26ee60fb246a.tar.gz'
-    sha1 '9c8b2672e2db6871b7ee4513e5e0b2cbba619494'
+    sha256 '5a1479438de10413a027bfb33ddb3e68e7c679e03138d7197cfd1c541c8e556c'
   end
 
   # Fix https://github.com/tony2001/pinba_engine/issues/40
