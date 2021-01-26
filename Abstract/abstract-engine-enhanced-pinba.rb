@@ -4,7 +4,7 @@ class AbstractEngineEnhancedPinba < Formula
   def self.init
     homepage 'http://pinba.org'
     url 'https://github.com/in2pire/pinba_engine/releases/download/v1.1.0-p1/pinba_engine-1.1.0-p1.tar.gz'
-    sha1 'f229361371dd2350ecd468f1650260d218b3c62e'
+    sha256 'a538b54aeee63ef2a4e37d35b0831c570236d987efaa4418db63426a72353eaf'
     head 'https://github.com/in2pire/pinba_engine.git'
 
     depends_on 'pkg-config' => :build
